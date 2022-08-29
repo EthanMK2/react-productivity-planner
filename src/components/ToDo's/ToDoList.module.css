@@ -1,0 +1,10 @@
+
+.toDoList {
+    margin: 1rem auto;
+    padding: 1rem 0;
+    max-width: 768px;
+}
+
+.noToDo {
+    text-align: center;
+}

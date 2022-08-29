@@ -1,0 +1,22 @@
+.item {
+    width: 90%;
+    margin: 1.5rem auto;
+    display: flex;
+    background-color: rgb(230, 230, 230);
+}
+
+.item p {
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+    font-size: 1.5rem;
+}
+
+.item button.editBtn {
+    margin-left: auto;
+}
+
+/* for the "Done!" button to have a space between itself and "Edit" button */
+.item button {
+    margin-right: 0;
+    margin-left: 1rem;
+}

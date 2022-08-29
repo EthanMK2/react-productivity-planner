@@ -1,0 +1,15 @@
+.Button {
+    border-radius: 6px;
+    background-color: rgb(214, 65, 65);
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.Button:hover {
+    background-color: rgb(240, 73, 73);
+}
+
+.Button:active {
+    background-color: rgb(214, 65, 65);
+}

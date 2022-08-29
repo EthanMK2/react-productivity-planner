@@ -1,0 +1,30 @@
+.controls {
+    max-width: 768px;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.controls h1 {
+    text-align: center;
+    margin: 0;
+    padding: 0.5rem 0;
+}
+
+.titleLabel {
+    font-size: 1.3rem;
+    
+}
+
+.titleInput {
+    border: none;
+    border-radius: 6px;
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+
+.createBtn {
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
