@@ -1,22 +1,46 @@
 .item {
-    width: 90%;
-    margin: 1.5rem auto;
-    display: flex;
-    background-color: rgb(230, 230, 230);
+  width: 90%;
+  margin: 1.5rem auto;
+  background-color: rgb(230, 230, 230);
+  text-align: center;
 }
 
 .item p {
+  font-size: 1.5rem;
+}
+
+.item button {
+  width: 50%;
+  margin: 0.5rem;
+}
+
+.item input {
+    width: 100%;
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  .item {
+    width: 90%;
+    margin: 1.5rem auto;
+    background-color: rgb(230, 230, 230);
+    display: flex;
+    flex-direction: row;
+  }
+
+  .item p {
     margin: 0.5rem 0;
     padding-left: 1rem;
     font-size: 1.5rem;
-}
+  }
 
-.item button.editBtn {
+  .item button.editBtn {
     margin-left: auto;
-}
+  }
 
-/* for the "Done!" button to have a space between itself and "Edit" button */
-.item button {
-    margin-right: 0;
-    margin-left: 1rem;
+  .item button {
+    max-width: fit-content;
+    align-self: baseline;
+  }
 }
