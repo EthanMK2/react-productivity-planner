@@ -2,10 +2,14 @@ import React, { Fragment, useState } from "react";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import classes from "./ToDoItem.module.css";
+import ToDoItemInfo from "./ToDoItemInfo";
 
 const ToDoItem = (props) => {
   const [beingEdited, setBeingEdited] = useState(false);
   const [editedTitle, setEditedTitle] = useState(props.title);
+
+  const [itemPriority, setItemPriority] = useState();
+  const [itemTimeRequired, setTimeRequired] = useState();
 
   const removeItemHandler = () => {
     props.onRemoveItem(props.title);
@@ -33,7 +37,9 @@ const ToDoItem = (props) => {
     <Fragment>
       {!beingEdited && (
         <Card className={classes.item}>
+          <ToDoItemInfo priorityType={props.priority} timeRequired={props.timeRequired}/>
           <p>{props.title}</p>
+          
           <Button className={classes.editBtn} onClick={editItemHandler}>
             Edit
           </Button>

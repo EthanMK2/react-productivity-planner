@@ -3,25 +3,33 @@ import ToDoControls from "./components/ToDo's/ToDoControls";
 import { Fragment, useEffect, useState } from "react";
 
 function App() {
-  let toDoListItems = []
+  let toDoListItems = [];
 
   if (localStorage.getItem("items")) {
-    console.log("GETTING ITEMS")
-    toDoListItems = JSON.parse(localStorage.getItem("items"))
+    console.log("GETTING ITEMS");
+    toDoListItems = JSON.parse(localStorage.getItem("items"));
   }
 
-  console.log("rendered App")
+  console.log("rendered App");
 
   const [items, setItems] = useState(toDoListItems);
 
   useEffect(() => {
-    console.log("SETTING EFFECT")
-    localStorage.setItem("items", JSON.stringify(items))
-  }, [items])
+    console.log("SETTING EFFECT");
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [items]);
 
   const addToDoHandler = (item) => {
     setItems((prevItems) => {
-      return [...prevItems, { title: item, id: `${Math.random().toString()}` }];
+      return [
+        ...prevItems,
+        {
+          id: `${Math.random().toString()}`,
+          title: item.title,
+          priority: item.priority,
+          timeRequired: item.timeRequired,
+        },
+      ];
     });
   };
 
@@ -32,11 +40,15 @@ function App() {
     setItems(newItems);
   };
 
-  const saveEditHandler = (oldTitle, newTitle) => {
+  const saveEditHandler = (oldTitle, newTitle, priority, timeRequired) => {
     const editedItem = items.find((item) => {
       return item.title === oldTitle;
     });
     editedItem.title = newTitle;
+
+    editedItem.priority = priority;
+
+    editedItem.timeRequired = timeRequired;
 
     const indexOfOldItem = items.findIndex((object) => {
       return object.title === oldTitle;

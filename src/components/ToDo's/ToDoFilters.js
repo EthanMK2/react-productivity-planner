@@ -12,12 +12,7 @@ const ToDoFilters = () => {
         <option value="critical">Critical</option>
       </select>
       <label htmlFor="time-filter">Time Required:</label>
-      <select className={classes["filter-selection-box"]} id="time-filter" name="time-filter">
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
-        <option value="critical">Critical</option>
-      </select>
+      <input type="number" min="5"/>
     </Card>
   );
 };

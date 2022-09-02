@@ -10,7 +10,7 @@ const ToDoControls = (props) => {
 
   const createToDo = () => {
     setOpenedCreate(false);
-    props.addToDo(titleEntered);
+    props.addToDo({title: titleEntered, priority: "Low", timeRequired: "20min"});
   };
 
   const onChangeTitle = (event) => {

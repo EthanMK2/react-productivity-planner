@@ -10,7 +10,7 @@ const ToDoList = (props) => {
     props.onRemoveItem(titleToRemove);
   };
 
-  const saveEditHandler = (oldTitle, newTitle) => {
+  const saveEditHandler = (oldTitle, newTitle) => {  // TODO: PASS VALUES HERE FROM CREATING TODO
     props.onSaveEdit(oldTitle, newTitle)
   }
 
@@ -22,6 +22,8 @@ const ToDoList = (props) => {
           <ToDoItem
             key={item.id}
             title={item.title}
+            priority={item.priority}
+            timeRequired={item.timeRequired}
             onSaveEdit={saveEditHandler}
             onRemoveItem={removeItemHandler}
           ></ToDoItem>
