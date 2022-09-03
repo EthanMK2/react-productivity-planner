@@ -6,6 +6,8 @@ import ToDoFilters from "./ToDoFilters";
 
 const ToDoControls = (props) => {
   const [titleEntered, setTitleEntered] = useState("");
+  // TODO: manage new todo states of priorityEntered and timeEntered
+
   const [openedCreate, setOpenedCreate] = useState(false);
 
   const createToDo = () => {

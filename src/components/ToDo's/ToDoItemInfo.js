@@ -22,7 +22,7 @@ const ToDoItemInfo = (props) => {
   return (
     <Card className={classes['info-card']}>
       <p className={priorityDecal}>{props.priorityType}</p>
-      <p>{props.timeRequired}</p>
+      <p>{props.timeRequired}m</p>
     </Card>
   );
 };
