@@ -55,7 +55,7 @@ const ToDoItem = (props) => {
           <Button className={classes.editBtn} onClick={editItemHandler}>
             Edit
           </Button>
-          <Button onClick={removeItemHandler}>Done!</Button>
+          <Button onClick={removeItemHandler} className={classes["done-btn"]}>Done!</Button>
         </Card>
       )}
       {beingEdited && (

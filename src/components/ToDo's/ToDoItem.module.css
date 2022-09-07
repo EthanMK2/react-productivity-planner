@@ -1,7 +1,7 @@
 .item {
   width: 90%;
   margin: 1.5rem auto;
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(104, 104, 104);
   text-align: center;
 }
 
@@ -12,6 +12,15 @@
 .item button {
   width: 50%;
   margin: 0.5rem;
+  background-color: rgb(139, 139, 139);
+}
+
+.item button:hover {
+  background-color: rgb(212, 212, 212);
+}
+
+.item .done-btn:hover {
+  background-color: rgb(117, 206, 82);
 }
 
 .item input {
@@ -38,7 +47,7 @@
   .item {
     width: 90%;
     margin: 1.5rem auto;
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(104, 104, 104);
     display: flex;
     flex-direction: row;
   }

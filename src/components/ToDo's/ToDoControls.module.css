@@ -16,6 +16,11 @@
 .controls button {
   width: 50%;
   margin: 1rem;
+  background-color: rgb(48, 100, 212);
+}
+
+.controls button:hover {
+  background-color: rgb(54, 114, 243);
 }
 
 .titleLabel {
@@ -28,6 +33,7 @@
   font-size: 1.5rem;
   padding-left: 1rem;
   width: 80%;
+  background-color: lightgrey;
 }
 
 .createBtn {
@@ -41,12 +47,14 @@
   border-radius: 8px;
   padding: 0.5rem 0;
   margin: 0.5rem 0;
+  background-color: lightgrey;
 }
 
 .timeInput {
   border-radius: 8px;
   padding: 0.5rem 0;
   width: 5rem;
+  background-color: lightgrey;
 }
 
 .inputDiv {
@@ -55,6 +63,11 @@
 }
 
 @media (min-width: 768px) {
+
+  .controls button {
+    width: 30%;
+  }
+
   .inputDiv {
     display: flex;
     flex-direction: row;

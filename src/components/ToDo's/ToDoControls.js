@@ -6,8 +6,8 @@ import ToDoFilters from "./ToDoFilters";
 
 const ToDoControls = (props) => {
   const [titleEntered, setTitleEntered] = useState("");
-  const [priorityEntered, setPriorityEntered] = useState();
-  const [timeEntered, setTimeEntered] = useState();
+  const [priorityEntered, setPriorityEntered] = useState("Low");
+  const [timeEntered, setTimeEntered] = useState("1");
 
   const [openedCreate, setOpenedCreate] = useState(false);
 
@@ -33,6 +33,7 @@ const ToDoControls = (props) => {
   };
 
   const clickedCreateHandler = () => {
+    setPriorityEntered("Low")  // bug when state is unchanged after creating a task, then not changing priority.
     setOpenedCreate(true);
   };
 
@@ -40,10 +41,14 @@ const ToDoControls = (props) => {
     setOpenedCreate(false);
   };
 
+  const filterChangeHandler = (priorityFilter, timeFilter) => {
+    props.onFilterChange(priorityFilter, timeFilter)
+  }
+
   if (openedCreate) {
     return (
       <Card className={classes.controls}>
-        <h1>ToDo</h1>
+        <h1>Productivity Planner</h1>
         <div className={classes.inputDiv}>
           <label className={classes.titleLabel}>
             Name:
@@ -79,13 +84,13 @@ const ToDoControls = (props) => {
   return (
     <Fragment>
       <Card className={classes.controls}>
-        <h1>ToDo</h1>
+        <h1>Productivity Planner</h1>
         <Button className={classes.createBtn} onClick={clickedCreateHandler}>
-          Create ToDo
+          Create Task
         </Button>
         <Button>Completion History</Button>
       </Card>
-      <ToDoFilters />
+      <ToDoFilters onFilterChange={filterChangeHandler} />
     </Fragment>
   );
 };
