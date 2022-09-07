@@ -88,7 +88,6 @@ const ToDoControls = (props) => {
         <Button className={classes.createBtn} onClick={clickedCreateHandler}>
           Create Task
         </Button>
-        <Button>Completion History</Button>
       </Card>
       <ToDoFilters onFilterChange={filterChangeHandler} />
     </Fragment>

@@ -22,13 +22,13 @@ function App() {
   const addToDoHandler = (item) => {
     setItems((prevItems) => {
       return [
-        ...prevItems,
         {
           id: `${Math.random().toString()}`,
           title: item.title,
           priority: item.priority,
           timeRequired: item.timeRequired,
         },
+        ...prevItems,
       ];
     });
   };
