@@ -33,7 +33,7 @@ const ToDoControls = (props) => {
   };
 
   const clickedCreateHandler = () => {
-    setPriorityEntered("Low")  // bug when state is unchanged after creating a task, then not changing priority.
+    setPriorityEntered("Low");
     setOpenedCreate(true);
   };
 
@@ -41,9 +41,9 @@ const ToDoControls = (props) => {
     setOpenedCreate(false);
   };
 
-  const filterChangeHandler = (priorityFilter, timeFilter) => {
-    props.onFilterChange(priorityFilter, timeFilter)
-  }
+  const filterChangeHandler = (filteredItems) => {
+    props.onFilterItems(filteredItems);
+  };
 
   if (openedCreate) {
     return (
@@ -60,7 +60,10 @@ const ToDoControls = (props) => {
           </label>
           <label>
             Priority:
-            <select onChange={changePriorityHandler} className={classes.priorityInput}>
+            <select
+              onChange={changePriorityHandler}
+              className={classes.priorityInput}
+            >
               <option value="Low">Low</option>
               <option value="Medium">Medium</option>
               <option value="High">High</option>
@@ -69,7 +72,11 @@ const ToDoControls = (props) => {
           </label>
           <label>
             Time in minutes:
-            <input onChange={changeTimeHandler} type="number" className={classes.timeInput} />
+            <input
+              onChange={changeTimeHandler}
+              type="number"
+              className={classes.timeInput}
+            />
           </label>
         </div>
         <br />
@@ -89,7 +96,8 @@ const ToDoControls = (props) => {
           Create Task
         </Button>
       </Card>
-      <ToDoFilters onFilterChange={filterChangeHandler} />
+      {/* BUG. Because this re-renders with create task button, the filter settings are changed, but not the actual list state, so the list is still filtered, but the filter says its not. */}
+      <ToDoFilters onFilterChange={filterChangeHandler} items={props.items} />
     </Fragment>
   );
 };

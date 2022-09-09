@@ -4,9 +4,6 @@ import { Fragment, useEffect, useState } from "react";
 
 function App() {
 
-  const [priorityFilter, setPriorityFilter] = useState("none")
-  const [timeFilter, setTimeFilter] = useState(null)
-
   let toDoListItems = [];
 
   if (localStorage.getItem("items")) {
@@ -14,6 +11,7 @@ function App() {
   }
 
   const [items, setItems] = useState(toDoListItems);
+  const [filteredItems, setFilteredItems] = useState(items);
 
   useEffect(() => {
     localStorage.setItem("items", JSON.stringify(items));
@@ -61,21 +59,21 @@ function App() {
     });
   };
 
-  const changeFilterHandler = (priorityFilter, timeFilter) => {
-    setPriorityFilter(priorityFilter);
-    setTimeFilter(timeFilter);
-    console.log("APP has the new filter values!")
+  const filterItemsHandler = (filteredItemList) => {
+    setFilteredItems(filteredItemList);
   }
 
   return (
     <Fragment>
-      <ToDoControls addToDo={addToDoHandler} onFilterChange={changeFilterHandler} />
+      <ToDoControls
+        addToDo={addToDoHandler}
+        onFilterItems={filterItemsHandler}
+        items={items}
+      />
       <ToDoList
-        toDoItems={items}
+        items={filteredItems}
         onRemoveItem={removeItemHandler}
         onSaveEdit={saveEditHandler}
-        priorityFilter={priorityFilter}
-        timeFilter={timeFilter}
       />
     </Fragment>
   );
