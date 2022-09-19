@@ -34,7 +34,7 @@ const ToDoControls = (props) => {
 
   const clickedCreateHandler = () => {
     setPriorityEntered("Low")  // bug when state is unchanged after creating a task, then not changing priority.
-    setTimeEntered("1");
+    setTimeEntered("1")
     setOpenedCreate(true);
   };
 
