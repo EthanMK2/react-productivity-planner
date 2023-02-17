@@ -1,1 +1,2 @@
-
+# A really nice to-do app, but in React.js
+This app functions like a to do app, but it includes more features uncommon in projects of its nature. It includes a nice interface with responsive design, along with more options for interacting with the data. The user can filter tasks by priority and time-to-completion. My favorite solution I created was finding out how to edit data in-place, and allow cancel and confirm functionality for that as well. 
