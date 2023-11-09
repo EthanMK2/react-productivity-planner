@@ -3,11 +3,14 @@ import ToDoControls from "./components/ToDo's/ToDoControls";
 import { Fragment, useEffect, useState } from "react";
 
 function App() {
+  const [priorityFilter, setPriorityFilter] = useState("none");
+  const [timeFilter, setTimeFilter] = useState(null);
 
-  const [priorityFilter, setPriorityFilter] = useState("none")
-  const [timeFilter, setTimeFilter] = useState(null)
-
-  let toDoListItems = [];
+  let toDoListItems = [
+    { id: 1, title: "Dummy Todo 1", priority: "High", timeRequired: 30 },
+    { id: 2, title: "todo 2", priority: "Low", timeRequired: 15 },
+    { id: 3, title: "third todo", priority: "Medium", timeRequired: 45 },
+  ];
 
   if (localStorage.getItem("items")) {
     toDoListItems = JSON.parse(localStorage.getItem("items"));
@@ -64,12 +67,15 @@ function App() {
   const changeFilterHandler = (priorityFilter, timeFilter) => {
     setPriorityFilter(priorityFilter);
     setTimeFilter(timeFilter);
-    console.log("APP has the new filter values!")
-  }
+    console.log("APP has the new filter values!");
+  };
 
   return (
     <Fragment>
-      <ToDoControls addToDo={addToDoHandler} onFilterChange={changeFilterHandler} />
+      <ToDoControls
+        addToDo={addToDoHandler}
+        onFilterChange={changeFilterHandler}
+      />
       <ToDoList
         toDoItems={items}
         onRemoveItem={removeItemHandler}
